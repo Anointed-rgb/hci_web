@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 /* Custom Styles & Animations for Hope and Courage International (HCI) */
 
 :root {
@@ -9,10 +14,26 @@
     --hci-cream: #FAF9F6;       /* Soft Warm Canvas */
 }
 
-html {
-    font-size:15px;
-    scroll-behavior: smooth;
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+/* Add this at the top of your CSS file to prevent horizontal overflow */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Prevents elements from spilling off the right edge */
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Update your main hero and banner wrapper */
+.hero-container, .event-banner {
+  width: 100%;
+  max-width: 1200px; /* Keeps content neatly aligned with your top navbar */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px; /* Adjust this number to control the exact left spacing */
+  padding-right: 24px;
 }
 
 h1, h2, h3, .font-serif-display {
