@@ -1,0 +1,170 @@
+/* Custom Styles & Animations for Hope and Courage International (HCI) */
+
+:root {
+    --hci-purple: #d41c87;      /* Deep Royal Hope Purple */
+    --hci-purple-dark: #f4007e;
+    --hci-teal: #ffa703;        /* Healing & Calm Teal */
+    --hci-gold: #D97706;        /* Warm Courage Amber/Gold */
+    --hci-rose: #BE185D;        /* Compassion Rose */
+    --hci-cream: #FAF9F6;       /* Soft Warm Canvas */
+}
+
+html {
+    font-size:15px;
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+h1, h2, h3, .font-serif-display {
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Preloader / Spinner Styles */
+#hci-preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: linear-gradient(135deg, #9f9ca6 0%, #4C1D95 50%, #0F766E 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.7s ease;
+}
+
+#hci-preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.ribbon-spinner {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.15);
+    border-top-color: #FBBF24;
+    border-right-color: #2DD4BF;
+    animation: spin-smooth 1.1s cubic-bezier(0.55, 0.15, 0.45, 0.85) infinite;
+    position: relative;
+}
+
+.ribbon-spinner::after {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-bottom-color: #F472B6;
+    border-left-color: #C084FC;
+    animation: spin-reverse 1.6s linear infinite;
+}
+
+@keyframes spin-smooth {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+    0% { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Hero Gradient & Mesh */
+.hero-mesh {
+    background-color: #2E1065;
+    background-image: 
+        radial-gradient(at 15% 20%, rgb(255, 200, 0) 0px, transparent 90%),
+        radial-gradient(at 85% 15%, rgba(190, 24, 93, 0.35) 0px, transparent 90%),
+        radial-gradient(at 75% 85%, rgba(217, 119, 6, 0.3) 0px, transparent 95%),
+        radial-gradient(at 10% 85%, rgba(146, 146, 146, 0.7) 0px, transparent 90%);
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-dark {
+    background: rgba(30, 14, 66, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Smooth Hover Lift */
+.hover-lift {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 35px -10px rgba(76, 29, 149, 0.18);
+}
+
+/* Gallery Hover In-Out (Enlarge smoothly on cursor hover) */
+.gallery-hover-img {
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: scale(1);
+}
+
+.gallery-hover-img:hover {
+    transform: scale(1.12);
+}
+
+/* Right-to-Left Partner Logo Motion (Home Page Only, Non-Repeating Track) */
+.partner-track {
+    animation: partner-rtl 22s linear infinite;
+    will-change: transform;
+}
+
+.partner-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes partner-rtl {
+    0% {
+        transform: translateX(100vw);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Active Involvement Tab Styling */
+.involvement-tab.active {
+    background: linear-gradient(135deg, #6B21A8, #4C1D95);
+    color: #FFFFFF;
+    border-color: #6B21A8;
+    box-shadow: 0 10px 20px -5px rgba(107, 33, 168, 0.35);
+}
+
+/* Scroll Reveal Animation */
+.reveal-section {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.75s ease-out, transform 0.75s ease-out;
+}
+
+.reveal-section.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 9px;
+}
+::-webkit-scrollbar-track {
+    background: #F3E8FF;
+}
+::-webkit-scrollbar-thumb {
+    background: #7E22CE;
+    border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #581C87;
+}
